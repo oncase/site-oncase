@@ -89,6 +89,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh $SSH_USER@$SSH_HOST 'chmod +x ./oncase.com.br/deploy.sh'
+            ssh $SSH_USER@$SSH_HOST 'rvm use ruby-2.5.0@oncase'
             ssh $SSH_USER@$SSH_HOST './oncase.com.br/deploy.sh'
 
 workflows:
