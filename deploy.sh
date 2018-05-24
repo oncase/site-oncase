@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd oncase.com.br
+
 git pull
 
 RAILS_ENV=production rails assets:precompile
