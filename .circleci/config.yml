@@ -73,6 +73,12 @@ jobs:
     machine:
       enabled: true
     steps:
+      - run:
+          name: Fix ssh Could not resolve hostname
+          command: |
+            ssh-keyscan 208.97.150.160 >> ~/.ssh/known_hosts # Add live server IP to known hosts.
+            # ssh-keyscan 555.45.67.89 >> ~/.ssh/known_hosts # Dev server, too.
+
       - add_ssh_keys: # add private SSH key from CircleCI account based on fingerprint.
           fingerprints:
             - "54:ae:51:73:a1:38:f7:fe:2f:f8:e0:da:05:5f:9a:35"
