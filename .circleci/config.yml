@@ -73,6 +73,9 @@ jobs:
     machine:
       enabled: true
     steps:
+      - add_ssh_keys: # add private SSH key from CircleCI account based on fingerprint.
+        fingerprints:
+          - "06:77:62:c3:a6:8c:76:e1:38:50:c7:14:99:b3:b6:c4"
       - run:
           name: Deploy Over SSH
           command: |
