@@ -74,22 +74,15 @@ jobs:
     machine:
       enabled: true
     steps:
-      - run:
-          name: Fix ssh Could not resolve hostname
-          command: |
-            cat >~/.netrc <<EOF
-            machine $SSH_HOST
-              login $SSH_USER
-              password $SSH_PASS
-            EOF
-
       - add_ssh_keys: # add private SSH key from CircleCI account based on fingerprint.
           fingerprints:
             - "54:ae:51:73:a1:38:f7:fe:2f:f8:e0:da:05:5f:9a:35"
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST 'bash -s' < ~/site-oncase/deploy.sh
+            ssh $SSH_USER@$SSH_HOST
+            cd oncase.com.br
+            cat deploy.sh
 workflows:
   version: 2
   build-and-deploy:
