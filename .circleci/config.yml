@@ -70,6 +70,7 @@ jobs:
           destination: test-results
 
   deploy:
+    working_directory: ~/site-oncase
     machine:
       enabled: true
     steps:
