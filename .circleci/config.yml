@@ -81,7 +81,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh $SSH_USER@$SSH_HOST 'cd oncase.com.br'
-            ssh $SSH_USER@$SSH_HOST 'cat deploy.sh'
+            ssh $SSH_USER@$SSH_HOST 'pwd'
 workflows:
   version: 2
   build-and-deploy:
