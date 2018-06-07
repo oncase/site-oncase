@@ -6,12 +6,16 @@ default: &default
 development:
   <<: *default
   database: site-oncase_development
-  username: postgres
-  host: db
 
 test:
   <<: *default
   database: site-oncase_test
+
+docker:
+  <<: *default
+  database: site-oncase_docker
+  host: db
+  username: postgres
 
 production:
   adapter: mysql2

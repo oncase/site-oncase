@@ -9,7 +9,7 @@ services:
     build: .
     command: bin/rails server --port 3000 --binding 0.0.0.0
     environment:
-      - RAILS_ENV=test
+      - RAILS_ENV=docker
     ports:
       - "3000:3000"
     links:
