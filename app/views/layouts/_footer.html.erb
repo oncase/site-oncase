@@ -1,187 +1,164 @@
-<!--<div class="feed text-center <%= 'bg-grey' if action_name == 'solutions' or action_name == 'services' or action_name == 'about_us' or action_name == 'contact' %> ">
-  <strong>Receba conteúdo em primeira mão ;)</strong>
-
-  <form action="">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Digite aqui o seu email" class="form-control">
-
-        </div>
-      </div>
-    </div>
-  </form>
-</div> -->
-
-<% if action_name == 'solutions' or action_name == 'services' or action_name == 'about_us' or action_name == 'contact' %>
+<% if ['oncase_labs'].include? action_name %>
   <%= image_tag "bg-footer-alt@2x.png", width: "101%", style: "margin-left: -2px" %>  
 <% else %>
-  <%= image_tag "bg-footer@2x.png", width: "101%", style: "margin-left: -2px", class: "mt-4" %>  
+  <%= image_tag "bg-footer@2x.png", width: "101%", style: "margin-left: -2px", class: "mt-5" %>  
 <% end %>
 
 <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        <%= link_to root_path do %>
-          <%= image_tag "logo-secondary.png", height: "50px" %>
-        <% end %>
-        
-        <div class="city-info pt-2">
-          <p class="city mb-0">Recife</p>
+  <% unless action_name == 'home' %>
+    <div class="container">
+      <div class="row pt-4 pb-5">
+        <div class="col-md-2 pt-3">
+          <ul class="list">
+            <%= image_tag 'logo-secondary.png', height: '50px', style: 'margin-top: -.5em' %>
 
-          <p class="address">
-            Rua do Bom Jesus, 163
-            <br>
-            2º andar - Recife-PE
-            <br>
-            CEP 50.030-170
-            <br>
-            Fone: +55-81-3077-8558
-          </p>
+            <li class="list-item">
+              <a href="/sobre-nos">Sobre nós</a>
+            </li>
+
+            <li class="list-item">
+              <a href="/sobre-nos#our-history">Nossa história</a>
+            </li>
+
+            <li class="list-item">
+              <a href="/sobre-nos#our-team">Nosso time</a>
+            </li>
+          </ul>
         </div>
 
-        <div class="city-info">
-          <p class="city mb-0">São Paulo</p>
+        <div class="col-md-2 pt-3">
+          <ul class="list">
+            <p class="title"><strong>PRODUTOS</strong></p>
 
-          <p class="address">
-            Fone: +55-11-4118-3068
-          </p>
+            <li class="list-item">
+              <a href="/produtos" target="_blank">Produtos</a>
+            </li>
+
+            <li class="list-item">
+              <a href="https://toolkit.onca.se/" target="_blank">Toolkit</a>
+            </li>
+            
+            <li class="list-item">
+              <a href="http://treinamentos.oncase.com.br/" target="_blank">Treinamentos</a>
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <div class="col-md-2 pt-3 pl-5">
-        <ul class="list">
-          <p class="title">SOBRE NÓS</p>
+        <div class="col-md-2 pt-3">
+          <ul class="list">
+            <p class="title"><strong>SOLUÇÕES</strong></p>
 
-          <li class="list-item">
-            <a href="/">Oncase</a>
-          </li>
+            <li class="list-item">
+              <%= link_to 'Big Data', big_data_path %>
+            </li>
 
-          <li class="list-item">
-            <a href="/sobre-nos">Nosso time</a>
-          </li>
-        </ul>
-      </div>
+            <li class="list-item">
+              <%= link_to 'Business Intelligence & Analytics', bi_analytics_path %>
+            </li>
 
-      <div class="col-md-2 pt-3">
-        <ul class="list">
-          <p class="title">PRODUTOS</p>
+            <li class="list-item">
+              <%= link_to 'Oncase Labs', oncase_labs_path %>
+            </li>
+          </ul>
+        </div>
 
-          <li class="list-item">
-            <a href="/produtos">Marketing de conteúdo</a>
-          </li>
+        <div class="col-md-2 pt-3">
+          <ul class="list">
+            <p class="title"><strong>TECNOLOGIAS</strong></p>
 
-          <li class="list-item">
-            <a href="/produtos">Seguros e riscos</a>
-          </li>
+            <li class="list-item">
+              <%= link_to 'Cloudera', cloudera_path %>
+            </li>
 
-          <li class="list-item">
-            <a href="/produtos">Retail</a>
-          </li>
+            <li class="list-item">
+              <%= link_to 'MongoDB', mongodb_path %>
+            </li>
 
-          <li class="list-item">
-            <a href="/produtos">Produtos técnicos</a>
-          </li>
-        </ul>
-      </div>
+            <li class="list-item">
+              <%= link_to 'Pentaho', mongodb_path %>
+            </li>
+          </ul>
+        </div>
 
-      <div class="col-md-2 pt-3">
-        <ul class="list">
-          <p class="title">O QUE FAZEMOS</p>
+        <div class="col-md-2 pt-3">
+          <ul class="list">
+            <p class="title"><strong>CONTEÚDOS</strong></p>
 
-          <li class="list-item">
-            <a href="/servicos#consultoria">Consultorias</a>
-          </li>
+            <li class="list-item">
+              <a href="/">Blog</a>
+            </li>
 
-          <li class="list-item">
-            <a href="/servicos#suporte">Suporte</a>
-          </li>
+            <li class="list-item">
+              <a href="/">Oncase Insights</a>
+            </li>
 
-          <li class="list-item">
-            <a href="https://treinamentos.oncase.com.br/">Treinamentos</a>
-          </li>
+            <li class="list-item">
+              <a href="/">Oncase TV</a>
+            </li>
+          </ul>
+        </div>
 
-          <li class="list-item">
-            <a href="/servicos#tecnologias">Tecnologias que usamos</a>
-          </li>
-        </ul>
-      </div>
+        <div class="col-md-2">
+          <div class="social">
+            <div class="medias">
+              <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
+                <%= fa_icon 'facebook' %>
+              </a>
 
-      <div class="col-md-2 pt-3 pl-5">
-        <ul class="list">
-          <p class="title">CONTEÚDOS</p>
+              <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
+                <%= fa_icon 'linkedin' %>
+              </a>
 
-          <li class="list-item">
-            <a href="http://blog.oncase.com.br/">Blog</a>
-          </li>
+              <a href="https://twitter.com/oncase" target="_blank" class="link">
+                <%= fa_icon 'twitter' %>
+              </a>
 
-          <li class="list-item">
-            <a href="https://medium.com/oncase">Oncase Insights</a>
-          </li>
+              <a href="https://www.youtube.com/channel/UC4sU9JSX8n7rD2tcBgJkjFQ" target="_blank" class="link">
+                <%= fa_icon 'youtube-play' %>
+              </a>
+            </div>
+          </div>
+          
+          <hr class="divider">
 
-          <li class="list-item">
-            <a href="https://www.youtube.com/c/OncaseBr">Oncase TV</a>
-          </li>
-        </ul>
-      </div>
+          <div class="newsletter">
+            <div class="title">Receba conteúdo em primeira mão</div>
 
-      <div class="col-md-2 pt-3">
-        <ul class="list">
-          <p class="title">CONTATO</p>
-
-          <li class="list-item">
-            <a href="contato">Fale conosco</a>
-          </li>
-
-          <li class="list-item">
-            <a href="https://nite-ceuma.typeform.com/to/pDWRFO">Trabalhe conosco</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4 pt-4">
-        <div class="receive-content">
-          <h5>Receba conteúdo em primeira mão</h5>
-          <div class="input-wrapper">
-            <form action="/subscribers" data-remote="true" method="POST">
-              <input type="email" name="subscriber[email]" id="email" placeholder="Digite aqui o seu e-mail...">
-              <input type="submit" value="Receber conteúdo" class="btn btn-info">
+            <form action="/subscribers" data-remote="true" method="POST" class="pt-2">
+              <input type="email" name="subscriber[email]" id="email">
+              <input type="submit" value="CADASTRAR" class="btn btn-orange mt-2">
             </form>
           </div>
         </div>
       </div>
+    </div>
+  <% else %>
+    <div class="container d-flex footer-home pt-4 pb-4">
+      <p class="copyright m-0">
+        © 2018 Oncase Tecnologia da Informação S.A. - Todos os direitos reservados.
+      </p>
 
-      <div class="col-md-4 pt-4">
-        <h5>Nos encontre</h5>
-        <div class="social">
-          <div class="medias">
-            <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
-              <%= fa_icon 'facebook' %>
-            </a>
+      <div class="social ml-auto">
+        <div class="medias pt-0">
+          <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
+            <%= fa_icon 'facebook' %>
+          </a>
 
-            <a href="https://twitter.com/oncase" target="_blank" class="link">
-              <%= fa_icon 'twitter' %>
-            </a>
+          <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
+            <%= fa_icon 'linkedin' %>
+          </a>
 
-            <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
-              <%= fa_icon 'linkedin' %>
-            </a>
+          <a href="https://twitter.com/oncase" target="_blank" class="link">
+            <%= fa_icon 'twitter' %>
+          </a>
 
-            <a href="https://medium.com/oncase" target="_blank" class="link">
-              <%= fa_icon 'medium' %>
-            </a>
-
-            <a href="https://github.com/oncase" target="_blank" class="link">
-              <%= fa_icon 'github' %>
-            </a>
-          </div>
+          <a href="https://www.youtube.com/channel/UC4sU9JSX8n7rD2tcBgJkjFQ" target="_blank" class="link">
+            <%= fa_icon 'youtube-play' %>
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </footer>
 
  

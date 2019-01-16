@@ -1,108 +1,154 @@
+<% content_for :title, "Oncase | Experts em Big Data, Analytics e Inteligência artificial" %>
+
+<% if user_signed_in? and notice %>
+  <div class="alert alert-success mb-0">
+    <div class="container">
+      <span>Tudo certo!</span> <%= notice %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
 <div class="about-us">
   <div class="content container">
     <div class="title">
       SOBRE NÓS
     </div>
 
-    <div class="d-flex">
-      <div class="description">
-        A Oncase é uma empresa de tecnologia com mais de 10 anos de mercado, focada em empoderar pessoas e organizações na transformação digital com uma abordagem orientada a dados.
-        <br><br>
-        Ajudamos várias organizações ao redor do mundo a transformar seus negócios através do melhor uso de big data, analytics e data science. Implementando as melhores práticas analíticas, identificando oportunidades de inovação, passando pelo desenvolvimento de times e fornecedores, e o suporte completo ao processo relacionado à dados.
-        <br><br>
-        Acreditamos na implementação de melhorias graduais e contínuas em forma de processos, sempre se adaptando aos novos desafios para gerar impacto real no negócio através da cultura analítica.
-      </div>
+    <!-- first section -->
+    <div class="d-flex first-section">
+      <div class="text-content">
+        <%= markdown(@texto_1.content) %>
 
-      <%= image_tag "time.png", class: "team" %>
-    </div>
-
-    <div class="social">
-      <div class="medias">
-        <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
-          <%= fa_icon 'facebook' %>
-        </a>
-
-        <a href="https://twitter.com/oncase" target="_blank" class="link">
-          <%= fa_icon 'twitter' %>
-        </a>
-
-        <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
-          <%= fa_icon 'linkedin' %>
-        </a>
-
-        <a href="https://medium.com/oncase" target="_blank" class="link">
-          <%= fa_icon 'medium' %>
-        </a>
-
-        <a href="https://github.com/oncase" target="_blank" class="link">
-          <%= fa_icon 'github' %>
-        </a>
-      </div>
-    </div>
-
-    <div class="ninjas">
-      <div class="text-center">
-        <div class="title">
-          TIME DE NINJAS
-        </div>
-
-        <div class="sub-title">
-          THE NINJAS
-        </div>
-      </div>
-
-      <div class="row members">
-        <% @members.each_with_index do |member, i| %>
-          <div class="col-md-3 member text-center <%= 'shifted' if i.odd? %>">
-            <%= cl_image_tag member.avatar.path, class: "photo" %>
-            <div class="name"><%= member.name %></div>
-            <div class="function">
-              <%= member.function %>
-
-              <% if member.linkedin.present? %>
-                <span>&nbsp;</span>
-                <%= link_to member.linkedin, target: '_blank' do %>
-                  <%= fa_icon 'linkedin' %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@about_us, @texto_1),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
         <% end %>
       </div>
 
-      <div class="text-center">
-        <a href="https://nite-ceuma.typeform.com/to/pDWRFO" target="_blank" class="btn btn-orange">
-          Entre para o nosso time de ninjas
-        </a>
+      <div class="video">
+        <iframe width="500px" height="350px" src="<%= @video.href %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <% if user_signed_in? %>
+          <%= link_to 'editar video',
+              edit_admin_page_link_content_path(@about_us, @video),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- second section -->
+    <div class="d-flex second-section" id="our-history">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_2.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_2.height}px;
+                    margin-left: #{@imagem_2.margin_left}em;
+                    margin-right: #{@imagem_2.margin_right}em;", title: "#{@imagem_2.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@about_us, @imagem_2),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="text-content">
+        <%= markdown(@texto_2.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@about_us, @texto_2),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
       </div>
     </div>
   </div>
 
+  <!-- a company -->
+  <div class="company text-center pt-4 mb-4">
+    <h1 class="title m-0">Uma empresa:</h1>
 
+    <div class="d-flex justify-content-center pt-5 mt-2 pb-2">
+      <%= image_tag 'novo/about-us/criatec.png', class: 'company-image' %>
+      <break></break>
+      <%= image_tag 'novo/about-us/porto-digital.png', class: 'company-image' %>
+      <break></break>
+      <%= image_tag 'novo/about-us/manguez-al.png', class: 'company-image' %>
+    </div>
+  </div>
+
+  <!-- partners -->
   <%= image_tag 'bg-tech@2x.png', width: '100%' %>
 
-  <div class="agile">
-    <div class="content container">
-      <div class="title">CULTURA AGILE NA ONCASE</div>
+  <div class="partners text-center">
+    <h1 class="title m-0">Parceiros Oficiais</h1>
 
-      <div class="d-flex pt-4">
-        <div class="description">
-          A Oncase Soluções em TI está no mercado há mais de 10 anos, posicionando-se como uma consultoria especializada em inteligência de negócios (Business Intelligence) e gestão empresarial através do uso de ferramentas líderes de mercado.
-          <br><br>
-          Contamos com uma estrutura de fábrica de software própria utilizando métodos ágeis da engenharia de software para apoiar nossas soluções e aprimorar nosso desenvolvimento de sistemas customizados.
-          <br><br>
-          Conquistamos avanços importantes em quase uma década de existência, tais como:
-          <br>
-          - Em 2012 conquistamos o certificado de qualidade MPS.Br e em 2014 conquistamos o CMMI, uma certificação internacional, importante para fornecedores de software e serviços.
-          <br>
-          - Crescimento acelerado no número de colaboradores certificados na plataforma Pentaho,
-          <br>
-          - Recebemos em 2013 e 2014 o prêmio de melhor parceiro Pentaho da América Latina.  
-          <br>
-          - Temos clientes de diversos portes, segmentos e em diferentes localidades.
+    <div class="d-flex justify-content-center pt-4 pb-2">
+      <%= image_tag 'tecnologias/pentaho.png', class: 'partner-image' %>
+      <break></break>
+      <%= image_tag 'tecnologias/cloudera.png', class: 'partner-image' %>
+      <break></break>
+      <%= image_tag 'tecnologias/mongodb.png', class: 'partner-image' %>
+    </div>
+  </div>
+
+  <%= image_tag 'bg-cta.png', width: '100%', style: 'margin-top: -1px;' %>
+
+  <!-- our team -->
+  <div class="content container" id="our-team">
+    <div class="d-flex our-team">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_3.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_3.height}px;
+                    margin-left: #{@imagem_3.margin_left}em;
+                    margin-right: #{@imagem_3.margin_right}em;", title: "#{@imagem_3.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@about_us, @imagem_3),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="text-content">
+        <%= markdown(@texto_3.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@about_us, @texto_3),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+
+        <div class="d-flex gptw pt-4">
+          <%= image_tag 'selo-gptw.png', height: '130px' %>
+          <break></break>
+          <div class="align-self-center job-button">
+            <%= link_to @link.name, @link.href, class: 'btn btn-outline-orange' %>
+          </div>
         </div>
 
-        <%= image_tag "agile@2x.png", class: "image" %>
+        <% if user_signed_in? %>
+          <%= link_to 'editar link',
+              edit_admin_page_link_content_path(@about_us, @link),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Oncase</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="description" content="Somos uma empresa brasileira de tecnologia que fornece serviços, produtos e consultoria digital focada em Big Data, Business Intelligence, Analytics e Inteligência artificial.">
     <!-- smartlook -->
     <script type="text/javascript">
     window.smartlook||(function(d) {
@@ -29,32 +29,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'UA-72638634-1');
     </script>
 
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1944764599164778'); 
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-    <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=1944764599164778&ev=PageView
-    &noscript=1"/>
-    </noscript>
-    <!-- End Facebook Pixel Code -->
+    <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/7bf6ff98-cbec-498c-935f-9d2e42fa9b30-loader.js" ></script>
   </head>
   <body>
     <%= render 'layouts/navbar' %>
-    
+
     <main>
       <%= yield %>
     </main>
@@ -62,5 +45,17 @@
     <%= render 'layouts/footer' %>
     
     <%= cloudinary_js_config %>
+
+    <div class="editable-text-modal">
+      <%= render 'layouts/text_content_modal', locals: { text_content: @text_content } %>
+    </div>
+
+    <div class="editable-image-modal">
+      <%= render 'layouts/image_content_modal', locals: { image_content: @image_content } %>
+    </div>
+
+    <div class="editable-link-modal">
+      <%= render 'layouts/link_content_modal', locals: { link_content: @link_content } %>
+    </div>
   </body>
 </html>

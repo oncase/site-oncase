@@ -1,35 +1,175 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <%= image_tag "logo.png", height: '60px' %>
-    </a>
+<div class="d-block d-md-none">
+  <nav class="navbar navbar-mobile navbar-expand-lg navbar-light bg-light px-0 pb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <%= image_tag "logo.png", height: '60px' %>
+      </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item <%= 'active' if about_us_page? %>">
-          <a class="nav-link" href="/sobre-nos">SOBRE NÓS</a>
-        </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item <%= 'active' if about_us_page? %>">
+            <a class="nav-link" href="/sobre-nos">SOBRE NÓS</a>
+          </li>
 
-        <li class="nav-item <%= 'active' if products_page? %>">
-          <a class="nav-link" href="/produtos">PRODUTOS</a>
-        </li>
+          <!--<li class="nav-item <%= 'active' if products_page? %>">
+            <a class="nav-link" href="/produtos">PRODUTOS</a>
+          </li> %>-->
 
-        <li class="nav-item <%= 'active' if services_page? %>">
-          <a class="nav-link" href="/servicos">O QUE FAZEMOS</a>
-        </li>
+          <li class="nav-item dropdown <%= 'active' if products_page? %>" id="p-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="products-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PRODUTOS
+            </a>
+            <div class="dropdown-menu dp-menu-products" aria-labelledby="products-dropdown">
+              <% @products.order(position: :asc).each do |product| %>
+                <a class="dropdown-item" href="<%= product.href %>" target="_blank">
+                  <%= product.name.upcase %>
+                </a>
+              <% end %>
+            </div>
+          </li>
 
-        <li class="nav-item <%= 'active' if content_page? %>">
-          <a class="nav-link" href="/conteudos">CONTEÚDOS</a>
-        </li>
-        
-        <li class="nav-item">
-          <a href="/contato" class="btn <%= action_name == 'contact' ? 'btn-orange active' : 'btn-outline-orange' %>">CONTATO</a>
-        </li>
-      </ul>
+          <li class="nav-item dropdown <%= 'active' if solutions_page? %>" id="s-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="solutions-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              SOLUÇÕES
+            </a>
+            <div class="dropdown-menu dp-menu-solutions" aria-labelledby="solutions-dropdown">
+              <% @solutions.order(position: :asc).each do |solution| %>
+                <a class="dropdown-item" href="<%= solution.href %>">
+                  <%= solution.name.upcase %>
+                </a>
+              <% end %>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown <%= 'active' if technologies_page? %>" id="t-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="technologies-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              TECNOLOGIAS
+            </a>
+            <div class="dropdown-menu dp-menu-technologies" aria-labelledby="technologies-dropdown">
+              <%= link_to 'CLOUDERA', cloudera_path, class: 'dropdown-item' %>
+              <%= link_to 'MONGODB', mongodb_path, class: 'dropdown-item' %>
+              <%= link_to 'PENTAHO', pentaho_path, class: 'dropdown-item' %>
+            </div>
+          </li>
+
+          <li class="nav-item <%= 'active' if content_page? %>">
+            <a class="nav-link" href="/conteudos">CONTEÚDOS</a>
+          </li>
+          
+          <% if action_name == 'home' %>
+            <li class="nav-item">
+              <a href="/contato" class="btn btn-orange btn-home">CONTATO</a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a href="/contato" class="btn <%= action_name == 'contact' ? 'btn-orange active' : 'btn-outline-orange' %>">CONTATO</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="d-none d-md-block">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-0 pb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <%= image_tag "logo.png", height: '60px' %>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item <%= 'active' if about_us_page? %>">
+            <a class="nav-link" href="/sobre-nos">SOBRE NÓS</a>
+          </li>
+
+          <li class="nav-item dropdown <%= 'active' if products_page? %>" id="p-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="products-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PRODUTOS
+            </a>
+            <div class="dropdown-menu dp-menu-products" aria-labelledby="products-dropdown">
+              <% @products.order(position: :asc).each do |product| %>
+                <a class="dropdown-item" href="<%= product.href %>" target="_blank">
+                  <%= product.name.upcase %>
+                </a>
+              <% end %>
+              
+              <% if user_signed_in? %>
+                <div class="dropdown-divider"></div>
+                <%= link_to 'EDITAR PRODUTOS', admin_products_path, class: 'dropdown-item' %>
+              <% end %>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown <%= 'active' if solutions_page? %>" id="s-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="solutions-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              SOLUÇÕES
+            </a>
+            <div class="dropdown-menu dp-menu-solutions" aria-labelledby="solutions-dropdown">
+              <% @solutions.order(position: :asc).each do |solution| %>
+                <a class="dropdown-item" href="<%= solution.href %>">
+                  <%= solution.name.upcase %>
+                </a>
+              <% end %>
+
+              <% if user_signed_in? %>
+                <div class="dropdown-divider"></div>
+                <%= link_to 'EDITAR SOLUÇÕES', admin_solutions_path, class: 'dropdown-item' %>
+              <% end %>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown <%= 'active' if technologies_page? %>" id="t-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="technologies-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              TECNOLOGIAS
+            </a>
+            <div class="dropdown-menu dp-menu-technologies" aria-labelledby="technologies-dropdown">
+              <%= link_to 'CLOUDERA', cloudera_path, class: 'dropdown-item' %>
+              <%= link_to 'MONGODB', mongodb_path, class: 'dropdown-item' %>
+              <%= link_to 'PENTAHO', pentaho_path, class: 'dropdown-item' %>
+            </div>
+          </li>
+
+          <li class="nav-item <%= 'active' if content_page? %>">
+            <a class="nav-link" href="/conteudos">CONTEÚDOS</a>
+          </li>
+          
+          <% if action_name == 'home' %>
+            <li class="nav-item">
+              <a href="/contato" class="btn btn-orange btn-home">CONTATO</a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a href="/contato" class="btn <%= action_name == 'contact' ? 'btn-orange active' : 'btn-outline-orange' %>">CONTATO</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<% if user_signed_in? %>
+  <div class="alert alert-warning m-0">
+    <div class="container d-flex">
+      <p class="m-0 d-inline align-self-center">
+        <strong>MODO EDIÇÃO DE CONTEÚDO</strong>
+      </p>
+
+      <div class="ml-auto">
+        <%= link_to 'DOWNLOAD SUBSCRIBERS', export_subscribers_path, class: 'btn btn-sm btn-outline-success' %>
+        <span>&nbsp;</span>
+        <%= link_to 'SAIR', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-danger' %>
+      </div>
     </div>
   </div>
-</nav>
+<% end %>

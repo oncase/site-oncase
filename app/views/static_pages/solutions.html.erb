@@ -1,0 +1,61 @@
+<% content_for :title, "Soluções | Experts em Big Data, Analytics e Inteligência artificial" %>
+
+<% if user_signed_in? and notice %>
+  <div class="alert alert-success mb-0">
+    <div class="container">
+      <span>Tudo certo!</span> <%= notice %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<div class="products container">
+  <div class="title">
+    SOLUÇÕES
+  </div>
+
+  <div class="description text-content pt-4">
+    <%= markdown(@texto_1.content) %>
+
+      <% if user_signed_in? %>
+        <%= link_to 'editar texto',
+            edit_admin_page_text_content_path(@solutions_page, @texto_1),
+            class: 'btn btn-sm btn-outline-info',
+            remote: true %>
+      <% end %>
+  </div>
+
+  <div class="list mt-5 pt-5">
+    <div class="row pt-5">
+      <% @solutions.each do |solution| %>
+        <div class="product col-md-6 pb-5 mb-5">
+          <% if solution.logo.present? %>
+            <%= cl_image_tag solution.logo.path, height: "#{solution.image_height}px" %>
+          <% end %>
+
+          <div class="text-content description pt-4">
+            <% if solution.description %>
+              <%= markdown(solution.description) %>
+            <% end %>
+          </div>
+
+          <a href="<%= solution.href %>" class="btn btn-outline-primary" target="_blank">
+            Veja mais sobre <strong><%= solution.name %></strong>
+            <span>&nbsp;</span>
+            <%= fa_icon "chevron-right" %>
+          </a>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar solução',
+                edit_admin_solution_path(solution),
+                class: 'btn btn-sm btn-outline-info',
+                target: '_blank' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

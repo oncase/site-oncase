@@ -1,91 +1,61 @@
-<div class="solutions">
-  <div class="content container">
-    <div class="title">
-      NOSSOS PRODUTOS
+<% content_for :title, "Produtos | Experts em Big Data, Analytics e Inteligência artificial" %>
+
+<% if user_signed_in? and notice %>
+  <div class="alert alert-success mb-0">
+    <div class="container">
+      <span>Tudo certo!</span> <%= notice %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+  </div>
+<% end %>
 
-    <div class="description">
-      Solução de produtividade comercial, efetividade de rota e controle de estoque trazendo inteligência para sua força de vendas.
-    </div>
+<div class="products container">
+  <div class="title">
+    PRODUTOS
+  </div>
 
-    <div class="tech-products">
-      <div class="content">
-        <div class="row products">
-          <% @products.each do |product| %>
-            <div class="col-md-4 product text-center">
-              <%= link_to product.link, target: "_blank" do %>
-                <%= cl_image_tag product.image.path, height: '100px' %>
-              <% end %>
-              
-              <div class="title">
-                <%= product.name %>
-              </div>
+  <div class="description text-content pt-4">
+    <%= markdown(@texto_1.content) %>
 
-              <div class="description">
-                <%= markdown(product.description) %>
-              </div>
-              
-              <% if product.code_available %>
-                <%= link_to "CÓDIGO DISPONÍVEL", product.code_link, class: "link" %>
+      <% if user_signed_in? %>
+        <%= link_to 'editar texto',
+            edit_admin_page_text_content_path(@products_page, @texto_1),
+            class: 'btn btn-sm btn-outline-info',
+            remote: true %>
+      <% end %>
+  </div>
 
-                <%= fa_icon "github" %>
-              <% end %>
-            </div>
+  <div class="list mt-5 pt-5">
+    <div class="row pt-5">
+      <% @products.each do |product| %>
+        <div class="product col-md-6 pb-5 mb-5">
+          <% if product.logo.present? %>
+            <%= cl_image_tag product.logo.path, height: "#{product.image_height}px" %>
           <% end %>
-        </div>
-      </div>
-    </div>
 
-    <div class="title pt-5 mt-5">
-      CASES E APLICAÇÕES
-    </div>
-
-    <div class="description">
-      A Oncase é uma empresa de tecnologia com mais de 10 anos de mercado, focada em empoderar pessoas e organizações na transformação digital com uma abordagem orientada a dados.
-    </div>
-
-    <div class="solutions-wrapper">
-      <% @case_products.each do |case_product| %>
-        <div class="solution">
-          <div class="title">
-            <%= case_product.category %>
-          </div>
-
-          <div class="d-none d-lg-block">
-            <%= cl_image_tag case_product.image.path, height: "#{case_product.image_height}px" %>
-          </div>
-
-          <div class="d-block d-lg-none">
-            <%= cl_image_tag case_product.image.path, width: '100%', height: 'auto' %>
-          </div>
-
-          <div class="short-description">
-            <%= markdown(case_product.description) %>
-          </div>
-
-          <div class="row points">
-            <% case_product.case_product_descriptions.order(position: :asc).each do |point| %>
-              <div class="col-md-6">
-                <div class="point">
-                  <div class="title">
-                    <strong><%= point.name %></strong>
-                  </div>
-                  
-                  <div class="description">
-                    <%= markdown(point.description) %>
-                  </div>
-                </div>
-              </div>
+          <div class="text-content description pt-4">
+            <% if product.description %>
+              <%= markdown(product.description) %>
             <% end %>
           </div>
 
-          <div class="actions text-center">
-            <a href="<%= case_product.link %>" class="btn btn-outline-<%= case_product.color.gsub("_", "-") %>">
-              Veja mais sobre o <strong><%= case_product.name %></strong>
-              <span>&nbsp;</span>
-              <%= fa_icon "chevron-right" %>
-            </a>
-          </div>
+          <a href="<%= product.href %>" class="btn btn-outline-primary" target="_blank">
+            Veja mais sobre o <strong><%= product.name %></strong>
+            <span>&nbsp;</span>
+            <%= fa_icon "chevron-right" %>
+          </a>
+
+          
+          <% if user_signed_in? %>
+            <%= link_to 'editar produto',
+                edit_admin_product_path(product),
+                class: 'btn btn-sm btn-outline-info',
+                target: '_blank' %>
+          <% end %>
+          
         </div>
       <% end %>
     </div>

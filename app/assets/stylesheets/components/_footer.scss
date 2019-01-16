@@ -1,6 +1,27 @@
+.receive-content {
+  .input-wrapper {
+    padding: 1em;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+
+    input[type="email"] {
+      width: 200px;
+      border: none;
+      background: none;
+      color: $color-white;
+    }
+
+    input[type="submit"] {
+      background-color: #4682E3;
+      border-color: #4682E3;
+      border-radius: 27px;
+      padding: .5rem .75rem;
+    }
+  }
+}
+
 footer {
   margin-top: -2px;
-  padding: 3em 0;
 
   background-color: $color-blue;
   color: $color-white;
@@ -13,36 +34,17 @@ footer {
     padding: 0;
     list-style-type: none;
 
+    .title {
+      font-family: 'Raleway';
+    }
+
     .list-item {
       padding-top: .5em;
 
       a {
         color: $color-white;
-        text-decoration: none;
+        // text-decoration: none;
         font-weight: 300;
-      }
-    }
-  }
-
-  .receive-content {
-    .input-wrapper {
-      padding: 1em;
-      background-color: #5372A4;
-      border-radius: 4px;
-
-      input[type="email"] {
-        width: 52%;
-        border: none;
-        background: none;
-        color: $color-white;
-      }
-
-      input[type="submit"] {
-        text-align: right;
-        background-color: #4682E3;
-        border-color: #4682E3;
-        border-radius: 27px;
-        padding: .5rem .75rem;
       }
     }
   }
@@ -56,6 +58,24 @@ footer {
       color: $color-white;
       opacity: 0.8;
     }
+  }
+
+  .newsletter {
+    #email {
+      background-color: $color-blue;
+      border: 1px solid #dcdcdc;
+      border-radius: 20px;
+      padding: .5rem .75rem;
+      color: $color-white;
+    }
+
+    input[type="submit"] {
+      padding: .5rem .75rem;
+    }
+  }
+
+  .divider {
+    background-color: #fafafa;
   }
 }
 
@@ -73,15 +93,23 @@ footer {
       padding-left: 1em !important;
     }
 
-    .receive-content {
-      .input-wrapper {
-        input[type="email"] {
-          width: 100%;
-        }
+    .newsletter {
+      #email {
+        padding: .6rem .75rem;
+        margin-right: .3em;
+      }
 
-        input[type="submit"] {
-          margin-top: 1rem;
-        }
+      input[type="submit"] {
+        margin-top: 0 !important;
+      }
+    }
+
+    .footer-home {
+      flex-wrap: wrap;
+    
+      .ml-auto {
+        padding-top: 1.5em;
+        margin-left: 0 !important;
       }
     }
   }

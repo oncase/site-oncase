@@ -1,0 +1,8 @@
+$('.editable-text-modal').html("<%= j(render 'layouts/text_content_modal', locals: { text_content: @text_content } ) %>");
+$('#textContentModal').modal('show');
+
+$('#textContentModal').on('shown.bs.modal', function() {
+  var simplemde = new SimpleMDE({
+    spellChecker: false
+  });
+});

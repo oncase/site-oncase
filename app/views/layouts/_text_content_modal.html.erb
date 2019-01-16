@@ -1,0 +1,25 @@
+<div class="modal fade" id="textContentModal" tabindex="-1" role="dialog" aria-labelledby="textContentModalLabel" aria-hidden="true" style="z-index: 10000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="textContentModalLabel">Editar conteúdo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @text_content %>
+          <pre>page = Page.find_by_slug('<%= @text_content.page.slug %>')<br>tc = page.text_contents.find('<%= @text_content.slug %>')<br>tc.content = <%= @text_content.content.inspect %>
+          </pre>
+          <%= form_for [:admin, @text_content.page, @text_content], html: { id: 'edit-text-content' } do |f| %>
+            <%= f.text_area :content %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        <button type="submit" form="edit-text-content" class="btn btn-success">Atualizar conteúdo</button>
+      </div>
+    </div>
+  </div>
+</div>

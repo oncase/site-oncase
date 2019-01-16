@@ -1,25 +1,295 @@
-<div class="home">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <% @banners.each_with_index do |banner, index| %>
-        <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
-      <% end %>
-    </ol>
-    <div class="carousel-inner">
-      <% @banners.each_with_index do |banner, index| %>
-        <div class="carousel-item <%= 'active' if index == 0 %>">
-          <div class="text-center">
-            <%= link_to banner.link, target: '_blank' do %>
-              <%= cl_image_tag banner.image.path %>
-            <% end %>
-          </div>
+<% content_for :title, "Oncase | Experts em Big Data, Analytics e Inteligência artificial" %>
+
+<div class="d-none d-md-block">
+  <div class="home">
+    <div class="phrase-wrapper d-flex justify-content-center align-items-center">
+      <div class="phrase">
+        <%= markdown(@texto_1.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@home, @texto_1),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+        
+        <div class="buttons pt-5 mt-2">
+          <%= link_to 'Produtos', products_path, class: 'btn btn-outline-orange btn-lg' %>
+          <span>&nbsp;</span>
+          <%= link_to 'Soluções', solutions_path, class: 'btn btn-outline-orange btn-lg' %>
         </div>
-      <% end %>
+      </div>
+    </div>
+    <div id="particles">
     </div>
   </div>
-  
-  <%= render 'static_pages/home/about_us' %>
-  <%= render 'static_pages/home/experts' %>
-  <%= render 'static_pages/home/clients' %>
-  <%= render 'static_pages/home/campus' %>
 </div>
+
+<div class="d-block d-md-none">
+  <div class="home-mobile">
+    <div class="phrase-wrapper">
+      <div class="phrase">
+        <%= markdown(@texto_1.content) %>
+      </div>
+
+      <div class="buttons mt-5">
+        <%= link_to 'Produtos', products_path, class: 'btn btn-outline-orange' %>
+        <span>&nbsp;</span>
+        <%= link_to 'Soluções', solutions_path, class: 'btn btn-outline-orange' %>
+      </div>
+    </div>
+
+    <div id="particles-mobile">
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on("turbolinks:load", function () {
+    particlesJS('particles',
+      {
+        "particles": {
+          "canvas": {
+            "width": "500px",
+            "height": "500px"
+          },
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#dcdcdc"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 5,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#333133",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": false,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true,
+        "config_demo": {
+          "hide_card": false,
+          "background_color": "#b61924",
+          "background_image": "",
+          "background_position": "30% 50%",
+          "background_repeat": "no-repeat",
+          "background_size": "cover"
+        }
+      }
+    );
+
+    particlesJS('particles-mobile',
+      {
+        "particles": {
+          "canvas": {
+            "width": "500px",
+            "height": "500px"
+          },
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#dcdcdc"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 5,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#333133",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": false,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true,
+        "config_demo": {
+          "hide_card": false,
+          "background_color": "#b61924",
+          "background_image": "",
+          "background_position": "30% 50%",
+          "background_repeat": "no-repeat",
+          "background_size": "cover"
+        }
+      }
+    );
+  });
+</script>

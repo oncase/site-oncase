@@ -1,0 +1,60 @@
+.text-content {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.618;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding-left: 1.3em;
+  }
+
+  li:before {
+    content: "\f00c"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; /* same as padding-left set on li */
+    width: 1.3em; /* same as padding-left set on li */
+    color: $color-light-blue;
+  }
+
+  h1, h2 {
+    margin: 0;
+    margin-bottom: .75em;
+
+    &:after {
+      width: 80px;
+      height: 3px;
+      margin: .25em 0;
+      display: block;
+      background-color: $color-light-blue;
+      content: ''
+    }
+  }
+
+  h3, h4 {
+    margin: 0;
+    margin-bottom: .75em;
+
+    &:after {
+      width: 50px;
+      height: 3px;
+      margin: .5em 0 .25em;
+      display: block;
+      background-color: $color-light-blue;
+      content: ''
+    }    
+  }
+
+  &.header-center {
+    h1, h2, h3, h4, h5 {
+      &:after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

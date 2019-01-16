@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def solutions_page?
+    controller_name == 'solutions'
+  end
+
+  def technologies_page?
+    controller_name == 'technologies'
+  end
+
   def products_page?
     action_name == 'products'
   end

@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery3
 //= require jquery_ujs
 //= require popper
@@ -20,6 +8,8 @@
 //= require cloudinary
 //= require attachinary
 //= require cocoon
+//= require particles.min
+//= require particles-config
 //= require turbolinks
 //= require_tree .
 
@@ -34,4 +24,22 @@ $(document).on('turbolinks:load', function() {
 
     simplemde.render();
   });
-})
+
+  $('.dropdown-toggle').dropdown();
+
+  $('.navbar-mobile .navbar-collapse').on('shown.bs.collapse', function () {
+    $('#particles-mobile').hide();
+    $('.phrase-wrapper').css('background-color', '#fff');
+    $('.phrase-wrapper').css('padding-bottom', '2em');
+    $('.phrase-wrapper').css('z-index', '1');
+    $('.phrase-wrapper .phrase').css('margin-top', '-5em');
+  });
+
+  $('.navbar-mobile .navbar-collapse').on('hidden.bs.collapse', function () {
+    $('#particles-mobile').show();
+    $('.phrase-wrapper').css('background-color', 'initial');
+    $('.phrase-wrapper').css('padding-bottom', '0');
+    $('.phrase-wrapper').css('z-index', 'initial');
+    $('.phrase-wrapper .phrase').css('margin-top', '0');
+  });
+});

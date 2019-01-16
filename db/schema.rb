@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520004313) do
+ActiveRecord::Schema.define(version: 20181208191840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_page_ref_to_text_contents", force: :cascade do |t|
+    t.bigint "page_id"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_add_page_ref_to_text_contents_on_page_id"
+  end
 
   create_table "attachinary_files", force: :cascade do |t|
     t.string "attachinariable_type"
@@ -30,48 +38,53 @@ ActiveRecord::Schema.define(version: 20180520004313) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
-  create_table "banners", force: :cascade do |t|
+  create_table "image_contents", force: :cascade do |t|
+    t.integer "height"
+    t.integer "margin_left"
+    t.integer "margin_right"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "link"
+    t.bigint "page_id"
+    t.string "slug"
+    t.string "title"
+    t.index ["page_id"], name: "index_image_contents_on_page_id"
   end
 
-  create_table "case_product_descriptions", force: :cascade do |t|
-    t.bigint "case_product_id"
+  create_table "link_contents", force: :cascade do |t|
+    t.string "name"
+    t.string "href"
+    t.integer "link_type"
+    t.bigint "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_link_contents_on_page_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "href"
     t.integer "position"
-    t.string "name"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["case_product_id"], name: "index_case_product_descriptions_on_case_product_id"
-  end
-
-  create_table "case_products", force: :cascade do |t|
-    t.string "category"
-    t.string "name"
     t.text "description"
-    t.integer "color"
-    t.string "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "image_height"
   end
 
-  create_table "jobs", force: :cascade do |t|
+  create_table "solutions", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.string "href"
+    t.integer "position"
+    t.string "description"
+    t.integer "image_height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "available"
-    t.string "link"
-  end
-
-  create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.string "function"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "linkedin"
   end
 
   create_table "subscribers", force: :cascade do |t|
@@ -80,14 +93,13 @@ ActiveRecord::Schema.define(version: 20180520004313) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tech_products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.boolean "code_available"
-    t.string "link"
+  create_table "text_contents", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "code_link"
+    t.string "slug"
+    t.bigint "page_id"
+    t.index ["page_id"], name: "index_text_contents_on_page_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,5 +119,8 @@ ActiveRecord::Schema.define(version: 20180520004313) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "case_product_descriptions", "case_products"
+  add_foreign_key "add_page_ref_to_text_contents", "pages"
+  add_foreign_key "image_contents", "pages"
+  add_foreign_key "link_contents", "pages"
+  add_foreign_key "text_contents", "pages"
 end

@@ -1,0 +1,198 @@
+.cases {
+  padding-top: 3em;
+  
+  .content {
+    > .title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    > .description {
+      max-width: 650px;
+      padding-top: 1em;
+  
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.618;
+    }
+  }
+
+  .cases-wrapper {
+    padding: 0 5em;
+  }
+
+  .cassius {
+    img {
+      height: 125px;
+    }
+  }
+
+  .scora {
+    img {
+      height: 200px;
+    }
+  }
+
+  .solution {
+    padding-top: 6em;
+    padding-bottom: 3em;
+
+    > .title {
+      padding-bottom: 1em;
+      text-align: right;
+      font-size: 50px;
+      font-weight: 200;
+    }
+
+    > .short-description {
+      max-width: 700px;
+      padding-top: .5em;
+      font-weight: 300;
+      font-size: 25px;
+    }
+    
+    .points {
+      // padding-left: 5.9em;
+      padding-top: 2em;
+      
+      font-size: 20px;
+      font-weight: 300;
+      
+      .description {
+        font-weight: 200;
+      }
+      
+      .point {
+        width: 425px;
+      }
+    }
+
+    .actions {
+      padding-top: 3em;
+
+      .btn {
+        font-size: 20px;
+
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .tech-products {
+    padding: 3em 0 0;
+    margin-top: -1px;
+
+    .content {
+      .product {
+        padding: 4em 2em;
+
+        .title {
+          padding-top: .5em;
+          font-weight: 800;
+          font-size: 25px;
+        }
+
+        .description {
+          padding-top: .5em;
+          font-size: 20px;
+          font-weight: 300;
+        }
+
+        .link {
+          color: $color-grey;
+          text-decoration: underline;
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .cases {
+    padding-top: 1em;
+
+    .container {
+      padding: 0;
+    }
+
+    .content {
+      padding: 0 1em;
+      
+      > .title {
+        font-size: 35px;
+        line-height: 40px;
+      }
+
+      .description {
+        font-size: 17px;
+      }
+    }
+
+    .cases-wrapper {
+      padding: 0;
+      padding-bottom: 2em;
+
+      .solution {
+        .d-flex {
+          flex-wrap: wrap;
+        }
+
+        > .title {
+          font-size: 25px;
+        }
+
+        > .short-description {
+          padding-bottom: 1em;
+          font-size: 20px;
+        }
+
+        .points {
+          padding-top: 0;
+
+          .point {
+            padding: .5em 0;
+            width: initial;
+          }
+        }
+
+        .actions {
+          padding-top: 1em;
+
+          .btn {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .tech-products {
+      padding-top: 2em;
+
+      .content {
+        > .title {
+          font-size: 25px;
+        }
+
+        > .description {
+          font-size: 17px;
+        }
+
+        .products {
+          .product {
+            padding: 2em;
+
+            > .description {
+              font-size: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

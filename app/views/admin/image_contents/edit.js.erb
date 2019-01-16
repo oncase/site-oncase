@@ -1,0 +1,4 @@
+$('.editable-image-modal').html("<%= j(render 'layouts/image_content_modal', locals: { image_content: @image_content } ) %>");
+$('#imageContentModal').modal('show');
+
+$('.attachinary-input').attachinary();

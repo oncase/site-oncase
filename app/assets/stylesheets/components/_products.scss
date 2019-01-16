@@ -1,0 +1,50 @@
+.products {
+  padding-top: 3em;
+
+  .text-content {
+    h1, h2, h3, h4 {
+      &:after {
+        height: 0;
+      }
+    }
+  }
+
+  > .title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+
+  > .description {
+    max-width: 600px;
+  }
+
+  .product {
+    padding-right: 3em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products {
+    padding-top: 1em;
+
+    > .title {
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    .list {
+      margin-top: 0 !important;
+    }
+    
+    .product {
+      padding-right: 1em;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

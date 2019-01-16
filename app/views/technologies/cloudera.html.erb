@@ -1,0 +1,448 @@
+<% content_for :title, "Cloudera | Oncase Tecnologia" %>
+
+<% if user_signed_in? and notice %>
+  <div class="alert alert-success mb-0">
+    <div class="container">
+      <span>Tudo certo!</span> <%= notice %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<div class="cloudera">
+  <div class="content container">
+    <div class="title">
+      CLOUDERA
+    </div>
+
+    <!-- first section -->
+    <div class="d-flex first-section">
+      <div class="text-content">
+        <%= markdown(@texto_1.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_1),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="ml-auto image-content">
+        <%= cl_image_tag "#{@imagem_13.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_13.height}px;
+                    margin-left: #{@imagem_13.margin_left}em;
+                    margin-right: #{@imagem_13.margin_right}em;", title: "#{@imagem_13.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_13),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row options pt-5">
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_1.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_1.height}px;
+                    margin-left: #{@imagem_1.margin_left}em;
+                    margin-right: #{@imagem_1.margin_right}em;", title: "#{@imagem_1.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_1),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_2.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_2),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_2.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_2.height}px;
+                    margin-left: #{@imagem_2.margin_left}em;
+                    margin-right: #{@imagem_2.margin_right}em;", title: "#{@imagem_2.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_2),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_3.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_3),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_3.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_3.height}px;
+                    margin-left: #{@imagem_3.margin_left}em;
+                    margin-right: #{@imagem_3.margin_right}em;", title: "#{@imagem_3.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_3),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_4.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_4),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_4.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_4.height}px;
+                    margin-left: #{@imagem_4.margin_left}em;
+                    margin-right: #{@imagem_4.margin_right}em;", title: "#{@imagem_4.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_4),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_5.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_5),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_5.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_5.height}px;
+                    margin-left: #{@imagem_5.margin_left}em;
+                    margin-right: #{@imagem_5.margin_right}em;", title: "#{@imagem_5.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_5),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_6.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_6),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="col-md-6 d-flex">
+        <%= cl_image_tag "#{@imagem_6.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_6.height}px;
+                    margin-left: #{@imagem_6.margin_left}em;
+                    margin-right: #{@imagem_6.margin_right}em;", title: "#{@imagem_6.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@cloudera, @imagem_6),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content">
+          <%= markdown(@texto_7.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_7),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- why section -->
+    <div class="d-flex why text-center justify-content-center">
+      <div class="text-content">
+        <%= markdown(@texto_8.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_8),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex why-1">
+      <div class="text-content">
+        <%= markdown(@texto_9.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_9),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_7.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_7.height}px;
+                    margin-left: #{@imagem_7.margin_left}em;
+                    margin-right: #{@imagem_7.margin_right}em;", title: "#{@imagem_7.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@cloudera, @imagem_7),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex why-2">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_8.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_8.height}px;
+                    margin-left: #{@imagem_8.margin_left}em;
+                    margin-right: #{@imagem_8.margin_right}em;", title: "#{@imagem_8.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@cloudera, @imagem_8),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="text-content">
+        <%= markdown(@texto_10.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_10),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex why-3">
+      <div class="text-content">
+        <%= markdown(@texto_11.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_11),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_9.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_9.height}px;
+                    margin-left: #{@imagem_9.margin_left}em;
+                    margin-right: #{@imagem_9.margin_right}em;", title: "#{@imagem_9.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@cloudera, @imagem_9),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex why-4">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_10.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_10.height}px;
+                    margin-left: #{@imagem_10.margin_left}em;
+                    margin-right: #{@imagem_10.margin_right}em;", title: "#{@imagem_10.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@cloudera, @imagem_10),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="text-content">
+        <%= markdown(@texto_15.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_15),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= image_tag 'bg-tech@2x.png', width: '100%' %>
+
+  <div class="cta pb-5">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="image-content">
+          <%= cl_image_tag "#{@imagem_11.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_11.height}px;
+                      margin-left: #{@imagem_11.margin_left}em;
+                      margin-right: #{@imagem_11.margin_right}em;", title: "#{@imagem_11.title}"%>
+
+            <% if user_signed_in? %>
+              <div class="text-center pt-4">
+                <%= link_to 'editar imagem',
+                    edit_admin_page_image_content_path(@cloudera, @imagem_11),
+                    class: 'btn btn-sm btn-outline-info',
+                    remote: true %>
+              </div>
+            <% end %>
+        </div>
+        
+        <div class="text-content">
+          <%= markdown(@texto_12.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@cloudera, @texto_12),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+
+          <%= link_to @link.name, @link.href, class: 'btn btn-lg btn-orange mt-2' %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar link',
+                edit_admin_page_link_content_path(@cloudera, @link),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= image_tag 'bg-cta.png', width: '100%', style: 'margin-top: -1px;' %>
+
+  <div class="container">
+    <div class="d-flex last-section text-center justify-content-center">
+      <div class="text-content">
+        <%= markdown(@texto_13.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_13),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center partner align-items-center">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_12.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_12.height}px;
+                    margin-left: #{@imagem_12.margin_left}em;
+                    margin-right: #{@imagem_12.margin_right}em;", title: "#{@imagem_12.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@cloudera, @imagem_12),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+      
+      <div class="text-content">
+        <%= markdown(@texto_14.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@cloudera, @texto_14),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

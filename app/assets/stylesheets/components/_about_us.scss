@@ -1,6 +1,19 @@
 div.about-us {
   padding-top: 3em;
 
+  .first-section {
+    padding-top: 2em;
+
+    .video {
+      margin-left: 4em;
+    }
+  }
+
+  .second-section, .our-team {
+    padding: 4em 0;
+    margin-top: 2em;
+  }
+
   > .content {
     > .title {
       font-family: 'Raleway', sans-serif;
@@ -8,111 +21,57 @@ div.about-us {
       font-weight: 700;
       line-height: 60px;
     }
+  }
 
-    .description {
-      max-width: 650px;
-      padding-top: 1em;
-  
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 1.618;
+  > .company {
+    padding-bottom: 2em;
+
+    .title {
+      font-size: 25px;
+      font-weight: 500;
     }
 
-    .team {
+    .company-image {
       width: auto;
-      height: 480px;
-      margin-left: 4em;
-    }
+      height: 130px;
 
-    .social {
-      padding-top: 1em;
-      
-      .medias {
-        i {
-          padding-right: 1em;
-          font-size: 25px;
-          color: $color-medium-blue;
-        }
-      }
-    }
-
-    .ninjas {
-      padding-top: 7em;
-
-      .title, .sub-title {
-        font-family: 'Raleway', sans-serif;
-        font-size: 50px;
-        font-weight: 800;
-        line-height: 60px;
-        letter-spacing: 2px;
-        color: $color-medium-blue;
+      &:first-child {
+        margin-right: 5em;
       }
 
-      .sub-title {
-        opacity: 0.1;
-        padding-left: 3.5em;
-      }
-
-      .members {
-        padding: 5em 0 0;
-
-        .member {
-          .photo {
-            width: auto;
-            height: 225px;
-          }
-
-          .name {
-            padding-top: .5em;
-            font-size: 25px;
-            font-weight: bold;
-          }
-          
-          .function {
-            font-size: 20px;
-            font-weight: 300;
-          }
-  
-          &.shifted {
-            padding-top: 8em;
-          }
-        }
-      }
-
-      .btn {
-        margin-top: 5em;
-        font-size: 20px;
-        font-weight: 300;
+      &:last-child {
+        margin-left: 5em;
       }
     }
   }
 
-  .agile {
-    padding: 3em 0 0;
+  > .partners {
     margin-top: -1px;
+    padding: 1.5em 0 1em;
     background-color: $color-light-grey;
 
-    .content {
-      > .title {
-        font-family: 'Raleway', sans-serif;
-        font-size: 50px;
-        font-weight: 700;
-      }
-  
-      .description {
-        max-width: 650px;
-        padding-top: .5em;
-  
-        font-size: 20px;
-        font-weight: 300;
+    .title {
+      font-size: 35px;
+      font-weight: 500;
+    }
+
+    .partner-image {
+      width: auto;
+      height: 130px;
+
+      &:first-child {
+        margin-right: 5em;
       }
 
-      .image {
-        width: auto;
-        height: 550px;
-        margin-left: 4em;
-        margin-top: 2em;
+      &:last-child {
+        margin-left: 5em;
       }
+    }
+  }
+
+  .our-team {
+    .job-button {
+      padding-left: 2em;
     }
   }
 }
@@ -128,101 +87,117 @@ div.about-us {
     .content {
       padding: 0 1em;
 
-      .d-flex {
-        flex-wrap: wrap;
-      }
-      
       > .title {
         font-size: 35px;
       }
+    }
+    
+    .first-section {
+      flex-wrap: wrap-reverse;
 
-      .description {
-        font-size: 17px;
+      .text-content {
+        padding-top: 1em;
       }
 
-      .team {
-        width: auto;
-        height: 275px;
-        margin: 0 auto;
-        margin-top: 2em;
-      }
+      .video {
+        margin-left: 0;
 
-      .social {
-        .medias {
-          text-align: center;
-
-          .link {
-            i {
-              padding: .5em;
-            }
-          }
-        }
-      }
-
-      .ninjas {
-        padding-top: 3em;
-
-        .title, .sub-title {
-          font-size: 30px;
-          line-height: 35px;
-        }
-
-        .sub-title {
-          padding-left: 0;
-          text-align: right;
-        }
-
-        .members {
-          padding-top: 1em;
-
-          .member {
-            padding: 2em 0;
-
-            &.shifted {
-              padding: 0;
-            }
-          }
-        }
-
-        .btn {
-          margin: 2em 0 3em;
-          font-size: 16px;
+        iframe {
+          width: 100% !important;
+          height: auto !important;
         }
       }
     }
 
-    .agile {
-      padding: 2em 0;
+    .second-section {
+      flex-wrap: wrap;
+    }
 
-      .content {
-        > .title {
-          // text-align: center;
-          font-size: 35px;
-          line-height: 40px;
+    .first-section, .second-section, .our-team {
+      padding-top: 1em;
+
+      .image-content {
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+          margin: 0 !important;
         }
+      }
+    }
 
-        .description {
-          padding-top: 0;
-          font-size: 17px;
+    .second-section, .our-team {
+      padding-bottom: 2em;
+      
+      .text-content {
+        padding-top: 1em;
+
+        h1 {
+          font-size: 30px;
         }
+      }
+    }
 
-        .image {
-          margin: 0 auto;
-          margin-top: 2em;
-          height: 300px;
-          width: auto;
+    .partners {
+      break {
+        flex-basis: 100%;
+        width: 0px; 
+        height: 0px; 
+        overflow: hidden;
+      }
+
+      padding-top: 2em;
+
+      .d-flex {
+        flex-wrap: wrap;
+      }
+
+      h1.title { 
+        font-size: 30px;
+      }
+
+      .partner-image {
+        height: 100px;
+        margin: 0 !important;
+      }
+    }
+
+    .company {
+      break {
+        flex-basis: 100%;
+        width: 0px; 
+        height: 0px; 
+        overflow: hidden;
+      }
+
+      .d-flex {
+        flex-wrap: wrap;
+      }
+
+      .company-image {
+        height: 100px;
+        margin: 0 !important;
+      }
+    }
+
+    .our-team {
+      break {
+        flex-basis: 100%;
+        width: 0px; 
+        height: 0px; 
+        overflow: hidden;
+      }
+      
+      flex-wrap: wrap;
+
+      .gptw {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .job-button {
+          padding-top: 2em;
+          padding-left: 0;
         }
       }
     }
   }
 }
-
-// @media screen and (min-width: 1700px) {
-//   div.about-us {
-//     .content {
-//       .description {
-//         max-width: 800px;
-//       }
-//     }
-//   }
-// }

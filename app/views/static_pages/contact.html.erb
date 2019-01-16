@@ -1,4 +1,6 @@
-<div class="contact">
+<% content_for :title, "Oncase | Experts em Big Data, Analytics e Inteligência artificial" %>
+
+<div class="contact pb-5">
   <div class="content container">
     <div class="title">
       CONTATO
@@ -24,7 +26,7 @@
 
             <div class="form-group">
               <label for="mensagem">Escreva uma mensagem para a gente:</label>
-              <textarea name="mensagem" class="form-control" placeholder="seu@email.com" rows="5"></textarea>
+              <textarea name="mensagem" class="form-control" placeholder="Sua mensagem..." rows="5"></textarea>
             </div>
 
             <button type="submit" class="btn btn-light-blue">Enviar <strong>Mensagem</strong></button>
@@ -34,30 +36,6 @@
         <div class="col-md-2"></div>
 
         <div class="col-md-4">
-          <div class="social">
-            <div class="medias">
-              <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
-                <%= fa_icon 'facebook' %>
-              </a>
-
-              <a href="https://twitter.com/oncase" target="_blank" class="link">
-                <%= fa_icon 'twitter' %>
-              </a>
-
-              <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
-                <%= fa_icon 'linkedin' %>
-              </a>
-
-              <a href="https://medium.com/oncase" target="_blank" class="link">
-                <%= fa_icon 'medium' %>
-              </a>
-
-              <a href="https://github.com/oncase" target="_blank" class="link">
-                <%= fa_icon 'github' %>
-              </a>
-            </div>
-          </div>
-
           <div class="place">
             <div class="title">
               <strong>Recife</strong>
@@ -82,7 +60,7 @@
             </div>
           </div>
 
-          <div class="place">
+          <div class="place pt-5">
             <div class="title">
               <strong>São Paulo</strong>
             </div>
@@ -94,40 +72,28 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <%= image_tag 'bg-tech@2x.png', width: '100%' %>
+          <div class="social">
+            <div class="medias">
+              <a href="https://www.facebook.com/oncasesolucoes/" target="_blank" class="link">
+                <%= fa_icon 'facebook' %>
+              </a>
 
-  <div class="jobs">
-    <div class="content container">
-      <div class="title">Entre para o nosso time de ninjas</div>
+              <a href="https://www.linkedin.com/company/oncase/" target="_blank" class="link">
+                <%= fa_icon 'linkedin' %>
+              </a>
 
-      <div class="description">
-        <% if @jobs.empty? %>
-          No momento não possuímos vagas abertas.
-        <% else %>
-          Estamos contratando, veja as vagas logo abaixo:
-        <% end %>
-      </div>
-      
-      <% unless @jobs.empty? %>
-        <div class="row">
-          <% @jobs.each do |job| %>
-            <div class="col-md-4 job pt-5 pb-4">
-              <div class="title"><strong><%= job.name %></strong></div>
+              <a href="https://twitter.com/oncase" target="_blank" class="link">
+                <%= fa_icon 'twitter' %>
+              </a>
 
-              <div class="description">
-                <%= markdown(job.description) %>
-              </div>
-
-              <a href="<%= job.link %>" target="_blank" class="btn btn-outline-light-blue mt-4">Se candidate a esta vaga</a>
+              <a href="https://www.youtube.com/channel/UC4sU9JSX8n7rD2tcBgJkjFQ" target="_blank" class="link">
+                <%= fa_icon 'youtube-play' %>
+              </a>
             </div>
-          <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

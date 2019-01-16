@@ -1,0 +1,53 @@
+<div class="modal fade" id="imageContentModal" tabindex="-1" role="dialog" aria-labelledby="imageContentModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageContentModalLabel">Editar imagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @image_content %>
+          <pre>page = Page.find_by_slug('<%= @image_content.page.slug %>')<br>ic = page.image_contents.find('<%= @image_content.slug %>')</pre>
+          <%= form_for [:admin, @image_content.page, @image_content], html: { id: 'edit-image-content' }, remote: true do |f| %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="form-group">
+                  <%= f.label :image %>
+                  <%= f.attachinary_file_field :image, required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :title %>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :height %>
+              <%= f.number_field :height, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :margin_left %>
+              <%= f.number_field :margin_left, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :margin_right %>
+              <%= f.number_field :margin_right, class: 'form-control' %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit 'Atualizar imagem', class: 'btn btn-success' %>
+              <span>&nbsp;</span>
+              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<%= form_for [:admin, @product] do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :position, 'Posição na exibição' %>
+        <%= f.number_field :position, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :name, 'Nome' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :href, 'Link' %>
+        <%= f.text_field :href, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :description, 'Descrição' %>
+        <%= f.text_area :description %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="form-group">
+            <%= f.label :logo %>
+            <br>
+            <%= f.attachinary_file_field :logo, required: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :image_height, 'Altura da logo' %>
+        <%= f.number_field :image_height, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions pt-2">
+    <%= f.submit 'Salvar produto', class: 'btn btn-success' %>
+    <span>&nbsp;</span>
+    <%= link_to 'Cancelar', admin_products_path, class: 'btn btn-outline-danger' %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    var simplemde = new SimpleMDE();
+  });
+</script>

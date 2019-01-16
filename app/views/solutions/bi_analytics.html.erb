@@ -1,0 +1,430 @@
+<% content_for :title, "BI & Analytics | Oncase Soluções" %>
+
+<% if user_signed_in? and notice %>
+  <div class="alert alert-success mb-0">
+    <div class="container">
+      <span>Tudo certo!</span> <%= notice %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<div class="bi-analytics">
+  <div class="content container">
+    <div class="title">
+      SOLUÇÕES DE BUSINESS 
+      <br>
+      INTELLIGENCE & ANALYTICS
+    </div>
+
+    <!-- first section -->
+    <div class="d-flex first-section">
+      <div class="text-content">
+        <%= markdown(@texto_1.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_1),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="ml-auto image-content">
+        <%= cl_image_tag "#{@imagem_11.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_11.height}px;
+                    margin-left: #{@imagem_11.margin_left}em;
+                    margin-right: #{@imagem_11.margin_right}em;", title: "#{@imagem_11.title}"%>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_11),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- second section / how we can help you -->
+    <div class="d-flex second-section text-center justify-content-center">
+      <div class="text-content">
+        <%= markdown(@texto_2.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_2),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="how-row row pt-5">
+      <div class="col-md-3">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_2.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_2.height}px;
+                      margin-left: #{@imagem_2.margin_left}em;
+                      margin-right: #{@imagem_2.margin_right}em;", title: "#{@imagem_2.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_2),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_4.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_4),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_3.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_3.height}px;
+                      margin-left: #{@imagem_3.margin_left}em;
+                      margin-right: #{@imagem_3.margin_right}em;", title: "#{@imagem_3.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_3),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_5.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_5),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_4.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_4.height}px;
+                      margin-left: #{@imagem_4.margin_left}em;
+                      margin-right: #{@imagem_4.margin_right}em;", title: "#{@imagem_4.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_4),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_6.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_6),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_5.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_5.height}px;
+                      margin-left: #{@imagem_5.margin_left}em;
+                      margin-right: #{@imagem_5.margin_right}em;", title: "#{@imagem_5.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_5),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_7.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_7),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- third section / cases -->
+    <div class="d-flex third-section text-center justify-content-center">
+      <div class="text-content">
+        <%= markdown(@texto_8.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_8),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex case-1">
+      <div class="text-content">
+        <%= markdown(@texto_9.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_9),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_6.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_6.height}px;
+                    margin-left: #{@imagem_6.margin_left}em;
+                    margin-right: #{@imagem_6.margin_right}em;", title: "#{@imagem_6.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@bi_analytics, @imagem_6),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex case-2">
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_7.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_7.height}px;
+                    margin-left: #{@imagem_7.margin_left}em;
+                    margin-right: #{@imagem_7.margin_right}em;", title: "#{@imagem_7.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@bi_analytics, @imagem_7),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="text-content">
+        <%= markdown(@texto_10.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_10),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex case-3">
+      <div class="text-content">
+        <%= markdown(@texto_16.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_16),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+
+      <div class="image-content">
+        <%= cl_image_tag "#{@imagem_12.image.path}",
+            style: "width: auto;
+                    height: #{@imagem_12.height}px;
+                    margin-left: #{@imagem_12.margin_left}em;
+                    margin-right: #{@imagem_12.margin_right}em;", title: "#{@imagem_12.title}"%>
+
+          <% if user_signed_in? %>
+            <div class="text-center pt-4">
+              <%= link_to 'editar imagem',
+                  edit_admin_page_image_content_path(@bi_analytics, @imagem_12),
+                  class: 'btn btn-sm btn-outline-info',
+                  remote: true %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <!-- success cases -->
+    <div class="d-flex success-cases text-center justify-content-center">
+      <div class="text-content">
+        <%= markdown(@texto_11.content) %>
+
+        <% if user_signed_in? %>
+          <%= link_to 'editar texto',
+              edit_admin_page_text_content_path(@bi_analytics, @texto_11),
+              class: 'btn btn-sm btn-outline-info',
+              remote: true %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="cases-row row pt-4">
+      <div class="col-md-4">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_8.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_8.height}px;
+                      margin-left: #{@imagem_8.margin_left}em;
+                      margin-right: #{@imagem_8.margin_right}em;", title: "#{@imagem_8.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_8),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_12.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_12),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_9.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_9.height}px;
+                      margin-left: #{@imagem_9.margin_left}em;
+                      margin-right: #{@imagem_9.margin_right}em;", title: "#{@imagem_9.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_9),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_13.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_13),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="text-center">
+          <%= cl_image_tag "#{@imagem_10.image.path}",
+              style: "width: auto;
+                      height: #{@imagem_10.height}px;
+                      margin-left: #{@imagem_10.margin_left}em;
+                      margin-right: #{@imagem_10.margin_right}em;", title: "#{@imagem_10.title}"%>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="text-center pt-4">
+            <%= link_to 'editar imagem',
+                edit_admin_page_image_content_path(@bi_analytics, @imagem_10),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          </div>
+        <% end %>
+
+        <div class="text-content pt-5 header-center">
+          <%= markdown(@texto_14.content) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'editar texto',
+                edit_admin_page_text_content_path(@bi_analytics, @texto_14),
+                class: 'btn btn-sm btn-outline-info',
+                remote: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= image_tag 'bg-tech@2x.png', width: '100%', class: 'mt-5' %>
+
+  <div class="cta text-center">
+    <%= markdown(@texto_15.content) %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'editar texto',
+          edit_admin_page_text_content_path(@bi_analytics, @texto_15),
+          class: 'btn btn-sm btn-outline-info',
+          remote: true %>
+    <% end %>
+
+    <%= link_to @link.name, @link.href, class: 'btn btn-lg btn-orange mt-4' %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'editar link',
+          edit_admin_page_link_content_path(@bi_analytics, @link),
+          class: 'btn btn-sm btn-outline-info',
+          remote: true %>
+    <% end %>
+  </div>
+
+  <%= image_tag 'bg-cta.png', width: '100%', style: 'margin-top: -1px;' %>
+
+  <div class="partner container text-center">
+    <p class="text-muted">Parceiro de tecnologia</p>
+
+    <%= image_tag 'tecnologias/pentaho.png', height: '100px' %>
+  </div>
+</div>

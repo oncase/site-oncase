@@ -1,0 +1,36 @@
+<div class="modal fade" id="linkContentModal" tabindex="-1" role="dialog" aria-labelledby="linkContentModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="linkContentModalLabel">Editar link</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @link_content %>
+          <%= form_for [:admin, @link_content.page, @link_content], html: { id: 'edit-link-content' } do |f| %>
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :href %>
+              <%= f.text_field :href, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :link_type %>
+              <%= f.select :link_type, [['cta', 'cta'], ['youtube', 'youtube']], {}, class: 'form-control' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        <button type="submit" form="edit-link-content" class="btn btn-success">Atualizar link</button>
+      </div>
+    </div>
+  </div>
+</div>
