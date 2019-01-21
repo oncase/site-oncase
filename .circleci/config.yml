@@ -14,7 +14,7 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:9.5-alpine
         environment:
-          POSTGRES_USER: site-oncase
+          POSTGRES_USER: root
           POSTGRES_DB: site-oncase_test
           POSTGRES_PASSWORD: ""
       
